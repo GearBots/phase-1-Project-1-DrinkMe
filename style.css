@@ -1,0 +1,18 @@
+.centered-text {
+    text-align: center;
+  }
+  .container{
+      text-align: center;
+  }
+  .drink-info {
+    display: flex;
+    justify-content: space-between;
+ }
+ 
+ .drink-info img {
+    width: 50%;
+ }
+ 
+ .drink-info div {
+    width: 50%; 
+ }

@@ -3,6 +3,8 @@
   }
   .container{
       text-align: center;
+      font-weight: bold;
+      
   }
   .drink-info {
     display: flex;

@@ -16,3 +16,8 @@
  .drink-info div {
     width: 50%; 
  }
+ .slidecontainer {
+     text-align: center;
+     position: absolute;
+     bottom: 110px;
+ }

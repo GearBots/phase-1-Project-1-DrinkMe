@@ -15,9 +15,14 @@
  
  .drink-info div {
     width: 50%; 
+    padding: 3%;
  }
  .slidecontainer {
      text-align: center;
      position: absolute;
      bottom: 110px;
+     left: 787px;
  }
+ body {
+    background-color: rgb(175, 225, 252);
+  }

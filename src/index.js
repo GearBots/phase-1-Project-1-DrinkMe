@@ -4,15 +4,32 @@ const moodOfDrinks = {
     "sad":["Whiskey", "Gin"],
     "classy":["Wine", "Champagne"]
  }
- 
  document.addEventListener("DOMContentLoaded", ()=>{
     document.querySelector('#moods').addEventListener("change", (e) =>{
         const mood = e.target.value;
             dropDown(mood);
+            btnClick();
             console.log(mood)
     });
  });
- 
+ function btnClick(randomClick) {
+    const button = document.querySelector('#btn')
+    const drinkImg = document.querySelector('#detail-image');
+    const drinkName = document.querySelector('#detail-name');
+    const drinkIng = document.querySelector('#detail-ingredients');
+    const drinkInst = document.querySelector('#detail-instructions');
+    button.addEventListener("click", ()=>{
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+    .then(results => results.json())
+    .then(data => {
+        
+            console.log("click")
+            drinkImg.src = data.drinks[0].strDrinkThumb;
+            drinkName.textContent = data.drinks[0].strDrink;
+            drinkInst.textContent = data.drinks[0].strInstructions;
+        })
+    })
+}
  function dropDown(mood){
     const drinks = moodOfDrinks[mood];
     const randomIndex = Math.floor(Math.random() * drinks.length);
@@ -20,7 +37,6 @@ const moodOfDrinks = {
     console.log('Random Drink:', randomDrink); // Debugging line
     drinks.forEach((randomDrink)=>{
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${randomDrink}`)
-        // fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=vodka`)
         .then(response => response.json())
         .then(drink =>{
             const drinkUp = drink.drinks[0];
@@ -32,10 +48,10 @@ const moodOfDrinks = {
             
             drinkImg.src = drinkUp.strDrinkThumb;
             drinkName.textContent = drinkUp.strDrink;
-            // drinkIng.textContent = drinkUp.strIngredient1 + ', ' + drinkUp.strIngredient2 + ', ' + drinkUp.strIngredient3 + ', ' + drinkUp.strIngredient4 + ', ' + drinkUp.strIngredient5 + ', ' + drinkUp.strIngredient6;
             drinkInst.textContent = drinkUp.strInstructions;
             console.log(drinkUp)
             drinkDetails(drinkUp)
+            btnClick()
         });
 
         function drinkDetails(drinkUp){
@@ -50,7 +66,7 @@ const moodOfDrinks = {
                 const firstIngredient= data.drinks[0].strIngredient1;
                 const secondIngredient= data.drinks[0].strIngredient2;
                 const thirdIngredient = data.drinks[0].strIngredient3;
-                if(firstIngredient && secondIngredient
+                if (firstIngredient && secondIngredient
                     ) {
                     drinkIng.textContent = firstIngredient; 
                     drinkIng2.textContent = secondIngredient; 
@@ -58,18 +74,10 @@ const moodOfDrinks = {
                 } else {
                     drinkIng.textContent = "No ingredients are available for this drink!";
                 }
-                // const secondIngredient= data.drinks[0].strIngredient2;
-                // if(secondIngredient) {
-                //     drinkIng.textContent = secondIngredient; 
-                // } else {
-                //     drinkIng.textContent = "No more ingredients are available for this drink!";
-                // }
             })
         }
-
     })
 
-
-
 }
+
  

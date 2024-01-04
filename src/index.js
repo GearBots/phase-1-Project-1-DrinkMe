@@ -22,7 +22,6 @@ const moodOfDrinks = {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
     .then(results => results.json())
     .then(data => {
-        
             console.log("click")
             drinkImg.src = data.drinks[0].strDrinkThumb;
             drinkName.textContent = data.drinks[0].strDrink;
@@ -53,7 +52,6 @@ const moodOfDrinks = {
             drinkDetails(drinkUp)
             btnClick()
         });
-
         function drinkDetails(drinkUp){
             console.log(drinkUp)
             fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkUp.idDrink}`)
@@ -77,7 +75,6 @@ const moodOfDrinks = {
             })
         }
     })
-
 }
 
  

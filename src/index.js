@@ -1,3 +1,4 @@
+
 const moodOfDrinks = {
     "chill": ["Vodka", "Beer", "Wine"],
     "wild": ['Tequila', "Rum"],
@@ -12,12 +13,59 @@ const moodOfDrinks = {
             console.log(mood)
     });
  });
+
+
+
+
  function btnClick(randomClick) {
     const button = document.querySelector('#btn')
     const drinkImg = document.querySelector('#detail-image');
     const drinkName = document.querySelector('#detail-name');
     const drinkIng = document.querySelector('#detail-ingredients');
     const drinkInst = document.querySelector('#detail-instructions');
+    
+
+
+    // Change the color of the random drink button for each mood that is mousedover.
+    button.addEventListener('mouseover', function(){
+        btn.style.backgroundColor = 'red';
+    })
+    //     if(mood === 'chill'){
+    //         btn.style.backgroundColor = 'purple';
+    //     }
+    //     if(mood === 'wild'){
+    //         btn.style.backgroundColor = 'yellow';
+    //     }
+    //     if(mood === 'sad'){
+    //         btn.style.backgroundColor = 'blue';
+    //     }
+    //     if(mood === 'classy'){
+    //         btn.style.backgroundColor = 'green';
+    //     } 
+    // })
+
+
+    // Show a tooltip with a mood-specific message when mouse hovers btn:
+    // button.addEventListener('mouseover', ()=>{
+    //     let moodSelector = document.querySelector('#moods');
+    //     let tooltipText = '';
+    //     if(moodSelector === 'chill'){
+    //         tooltipText = 'Time to relax with a drink';
+    //     }
+    //     if(moodSelector === 'wild'){
+    //         tooltipText = 'Let\'s get the party started!';
+    //     }
+    //     if(moodSelector === 'sad'){
+    //         tooltipText = 'This drink will cheer you up';
+    //     }
+    //     if(moodSelector === 'classy'){
+    //         tooltipText = 'Enjoy a sophisticated drink';
+    //     } 
+    //     button.setAttribute('title', tooltipText);
+    // })
+ 
+
+    
     button.addEventListener("click", ()=>{
     fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
     .then(results => results.json())
@@ -29,6 +77,9 @@ const moodOfDrinks = {
         })
     })
 }
+
+
+
  function dropDown(mood){
     const drinks = moodOfDrinks[mood];
     const randomIndex = Math.floor(Math.random() * drinks.length);
@@ -76,5 +127,3 @@ const moodOfDrinks = {
         }
     })
 }
-
- 

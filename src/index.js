@@ -44,6 +44,11 @@ const moodOfDrinks = {
     //     } 
     // })
 
+    // Change the color of the random drink button back to white when mouse leaves button.
+    button.addEventListener('mouseout', function(){
+        btn.style.backgroundColor = 'white';
+    })
+
 
     // Show a tooltip with a mood-specific message when mouse hovers btn:
     // button.addEventListener('mouseover', ()=>{

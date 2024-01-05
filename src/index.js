@@ -16,7 +16,6 @@ const moodOfDrinks = {
 
 
 
-
  function btnClick(randomClick) {
     const button = document.querySelector('#btn')
     const drinkImg = document.querySelector('#detail-image');
@@ -44,6 +43,7 @@ const moodOfDrinks = {
     //     } 
     // })
 
+
     // Change the color of the random drink button back to white when mouse leaves button.
     button.addEventListener('mouseout', function(){
         btn.style.backgroundColor = 'white';
@@ -52,18 +52,22 @@ const moodOfDrinks = {
 
     // Show a tooltip with a mood-specific message when mouse hovers btn:
     // button.addEventListener('mouseover', ()=>{
-    //     let moodSelector = document.querySelector('#moods');
+    //     const mood = // getCurrentMood(); Get the mood from the dropdown
+        
+    //     moodDropDown = document.querySelector('#moods');
+    //     currentMood = moodDropDown.value;
+
     //     let tooltipText = '';
-    //     if(moodSelector === 'chill'){
+    //     if(mood === 'chill'){
     //         tooltipText = 'Time to relax with a drink';
     //     }
-    //     if(moodSelector === 'wild'){
+    //     if(mood === 'wild'){
     //         tooltipText = 'Let\'s get the party started!';
     //     }
-    //     if(moodSelector === 'sad'){
+    //     if(mood === 'sad'){
     //         tooltipText = 'This drink will cheer you up';
     //     }
-    //     if(moodSelector === 'classy'){
+    //     if(mood === 'classy'){
     //         tooltipText = 'Enjoy a sophisticated drink';
     //     } 
     //     button.setAttribute('title', tooltipText);
